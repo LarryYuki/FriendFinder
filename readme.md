@@ -1,4 +1,17 @@
 # FriendFinder app
 
 
-### Our server.js file sets up the Express server, specifying our port number, the npm packages that need to be loaded, and also the routes, which we have externalizedThere are 2 separate HTML files (home.html and survey.html) that serve as the front-end portion of our code; they determine what the user sees (the homepage and the survey, which will also show the resulting best match)Our 2 routing files (htmlRoutes.js and apiRoutes.js) determine the back-end logic (based on the request being made, the response that gets sent to the browser); the HTML routes display the survey and the homepage based on the URL that is accessed, and the API routes send back existing content in our server-side data or add new friendsBest match is calculated by finding the friend with the minimal difference in scores and then sending that friend to the browser as a JSON objectA modal is then toggled, displaying the the best match to the person who just took the surveyIn essense, this will also be a form of notes that you may later reference weeks later
+## Overview
+### In this activity, you'll build a compatibility-based "FriendFinder" application -- basically a dating app. This full-stack site will take in results from your users' surveys, then compare their answers with those from other users. The app will then display the name and picture of the user with the best overall match.
+
+### You will use Express to handle routing. Make sure you deploy your app to Heroku so other users can fill it out.
+
+## Instructions
+### The survey should have 10 questions of your choosing. Each answer should be on a scale of 1 to 5 based on how much the user agrees or disagrees with a question.
+
+### The server.js file should require the basic npm packages we've used in class: express, body-parser and path. The htmlRoutes.js file should include two routes:
+
+### A GET Route to /survey which should display the survey page. A default, catch-all route that leads to home.html which displays the home page.
+
+### Best matches for friend should come up after submiting the answers.
+
