@@ -1,53 +1,23 @@
-let $btn = $('button');
-let input = $('.input')
-
-$btn.on('click', e => {
-    e.preventDefault()
-    let scores = []
-    for (let i = 0; i < input.length; i++) {
-        scores.push(Number(input[i].value))
+var dummy = [{
+        "name": "Mr 1s",
+        "photo": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+        "scores": [
+            1, 1, 1, 1, 1, 1, 1, 1, 1, 1
+        ]
+    },
+    {
+        "name": "Ms 5s",
+        "photo": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+        "scores": [
+            5, 5, 5, 5, 5, 5, 5, 5, 5, 5
+        ]
+    },
+    {
+        "name": "mr 3s",
+        "photo": "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+        "scores": [
+            3, 3, 3, 3, 3, 3, 3, 3, 3, 3
+        ]
     }
-    console.log(scores);
-    $.ajax({
-            type: "POST",
-            url: "/api/friends",
-            data: {
-                name: "",
-                photo: "",
-                scores: scores
-            }
-
-        }).then(res => {
-            console.log(res);
-        })
-        .catch(err => {
-            console.log(err);
-        })
-
-})
-
-// $btn.on('click', e => {
-//     e.preventDefault()
-//     let scores = []
-//     for (let i = 1; i <= 3; i++) {
-//         scores.push(Number($(`#inp-${i}`).val()))
-//     }
-//     console.log(scores);
-
-//     $.ajax({
-//             type: "POST",
-//             url: "/api",
-//             data: {
-//                 name: "",
-//                 photo: "",
-//                 scores:
-//             }
-//         }).then(res => {
-//             console.log(res);
-//         })
-//         .catch(err => {
-//             console.log(err);
-//         })
-//     console.log(scores);
-
-// })
+]
+module.exports = dummy

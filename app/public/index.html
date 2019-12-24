@@ -12,18 +12,91 @@
 
 <body>
     <main>
-        <input type="number" id="inp_1" class="input">
-        <input type="number" id="inp_2" class="input">
-        <input type="number" id="inp_3" class="input">
-        <button>do it</button>
-        <script type="text/javascript" src="./assets/friends.js"></script>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><strong>Questionnaire(Select from 1 agree- 5 disagress)</strong></h3>
+            </div>
+            <div class="panel-body">
+
+                <h4><strong>Question 1</strong></h4>
+                <h5>You are effective at dealing with fast-changing situations and find that stable environments can
+                    become boring.</h5>
+                <input type="number" id="inp_1" class="input">
+
+                <h4><strong>Question 2</strong></h4>
+                <h5>Your mind is always buzzing with unexplored ideas and plans.</h5>
+                <input type="number" id="inp_1" class="input">
+
+                <h4><strong>Question 3</strong></h4>
+                <h5>You are energized when interacting with other people; being alone for extended periods of time
+                    drains your energy.</h5>
+                <input type="number" id="inp_1" class="input">
+
+                <h4><strong>Question 4</strong></h4>
+                <h5>You are the first to take change in social gatherings or group projects.</h5>
+                <input type="number" id="inp_1" class="input">
+
+                <h4><strong>Question 5</strong></h4>
+                <h5>You consider yourself to be more practical than artistic.</h5>
+                <input type="number" id="inp_1" class="input">
+
+                <h4><strong>Question 6</strong></h4>
+                <h5>You often find yourself lost in thought when you are walking in nature.</h5>
+                <input type="number" id="inp_1" class="input">
+
+                <h4><strong>Question 7</strong></h4>
+                <h5>You are more of a natural improviser than a careful planner.</h5>
+                <input type="number" id="inp_1" class="input">
+
+                <h4><strong>Question 8</strong></h4>
+                <h5>You prefer Front End design over Back End scripting.</h5>
+                <input type="number" id="inp_1" class="input">
+
+                <h4><strong>Question 9</strong></h4>
+                <h5>You have fun in a light-hearted atmosphere; prefering not to take things too seriously.</h5>
+                <input type="number" id="inp_1" class="input">
+                <h4><strong>Question 10</strong></h4>
+                <h5>You easily understand objects/concepts that are intangible or abstract.</h5>
+                <input type="number" id="inp_1" class="input">
+
+            </div>
+        </div>
+
+        <button id="submitButton" type="submit" class="btn btn-md btn-success btn-block">
+            <h4><span class="glyphicon glyphicon-send"></span> Submit</h4>
+        </button>
+        <script>
+            $(document).ready(function () {
+                let $btn = $('#submitButton');
+                let input = $('.input')
+
+                $btn.on('click', e => {
+                    e.preventDefault()
+                    let scores = []
+                    for (let i = 0; i < input.length; i++) {
+                        scores.push(Number(input[i].value))
+                    }
+                    console.log(scores);
+                    $.ajax({
+                        type: "POST",
+                        url: "/api/friends",
+                        data: {
+                            name: "",
+                            photo: "",
+                            scores: scores
+                        }
+
+                    }).then(res => {
+                        console.log(res);
+                    })
+                        .catch(err => {
+                            console.log(err);
+                        })
+
+                })
+            })
+        </script>
     </main>
 </body>
 
 </html>
-
-
-
-
-
-​
