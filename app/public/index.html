@@ -12,6 +12,9 @@
 
 <body>
     <main>
+        <input id="username" placeholder="Your name" type="text">
+        <input id="pic" placeholder="Your photo" type="text">
+
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title"><strong>Questionnaire(Select from 1 agree- 5 disagress)</strong></h3>
@@ -81,8 +84,8 @@
                         type: "POST",
                         url: "/api/friends",
                         data: {
-                            name: "",
-                            photo: "",
+                            name: $('#username').val(),
+                            photo: $('#pic').val(),
                             scores: scores
                         }
 
@@ -96,7 +99,6 @@
                 })
             })
         </script>
-        <script src="../routing/analyzefriend.js"></script>
     </main>
 </body>
 
